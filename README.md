@@ -1,63 +1,149 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19763690&assignment_repo_type=AssignmentRepo)
-# Express.js RESTful API Assignment
 
-This assignment focuses on building a RESTful API using Express.js, implementing proper routing, middleware, and error handling.
+# 🛠️ Express Products API
 
-## Assignment Overview
+This project is a RESTful API built with Express.js for managing a list of products. It supports full CRUD operations, authentication via an API key, custom middleware, error handling, and advanced features like filtering, pagination, and search.
 
-You will:
-1. Set up an Express.js server
-2. Create RESTful API routes for a product resource
-3. Implement custom middleware for logging, authentication, and validation
-4. Add comprehensive error handling
-5. Develop advanced features like filtering, pagination, and search
+---
 
-## Getting Started
+## 📦 Requirements
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
+- Node.js v18 or higher
+- npm
+- Postman (or any API testing tool)
+
+---
+
+## 🚀 How to Run the Server
+
+1. Clone the repository:
+   ```bash
+   git clone <your-repository-url>
+
+2. Navigate into the project folder:
+   
+   cd week-2-express-js-assignment-Wangarijane
+
 3. Install dependencies:
-   ```
+   
    npm install
-   ```
-4. Run the server:
-   ```
+
+4. Create a .env file in the root directory and add:
+   
+   API_KEY=supersecret123
+
+5. Start the server:
+   
    npm start
-   ```
 
-## Files Included
+6. Visit in browser or use Postman:
+   
+   http://localhost:3000
 
-- `Week2-Assignment.md`: Detailed assignment instructions
-- `server.js`: Starter Express.js server file
-- `.env.example`: Example environment variables file
+## 📌 API Endpoints
+⚠️ All routes require the header:
 
-## Requirements
 
-- Node.js (v18 or higher)
-- npm or yarn
-- Postman, Insomnia, or curl for API testing
+x-api-key: supersecret123
 
-## API Endpoints
+## GET /api/products
 
-The API will have the following endpoints:
+Description: Get all products.
 
-- `GET /api/products`: Get all products
-- `GET /api/products/:id`: Get a specific product
-- `POST /api/products`: Create a new product
-- `PUT /api/products/:id`: Update a product
-- `DELETE /api/products/:id`: Delete a product
+Query Parameters:
 
-## Submission
+category - filter by category
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+search - search by product name
 
-1. Complete all the required API endpoints
-2. Implement the middleware and error handling
-3. Document your API in the README.md
-4. Include examples of requests and responses
+page and limit - pagination
 
-## Resources
+Example:
 
-- [Express.js Documentation](https://expressjs.com/)
-- [RESTful API Design Best Practices](https://restfulapi.net/)
-- [HTTP Status Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) 
+GET /api/products?category=electronics&search=lap&page=1&limit=2
+
+Sample Response:
+
+[
+  {
+    "id": "1",
+    "name": "Laptop",
+    "description": "Fast laptop",
+    "price": 1000,
+    "category": "electronics",
+    "inStock": true
+  }
+]
+
+## GET /api/products/:id
+
+Description: Get a specific product by ID.
+
+## POST /api/products
+
+Description: Create a new product.
+
+Request Body Example:
+
+{
+  "name": "Keyboard",
+  "description": "Mechanical keyboard",
+  "price": 70,
+  "category": "electronics",
+  "inStock": true
+}
+
+## PUT /api/products/:id
+
+Description: Update an existing product.
+
+Request Body: Same structure as POST.
+
+## DELETE /api/products/:id
+
+Description: Delete a product by ID.
+
+## 🔐 Authentication
+
+All endpoints require an API key header:
+
+x-api-key: supersecret123
+
+## 📁 Folder Structure
+
+project-root/
+│
+├── routes/
+│   └── products.js
+│
+├── middleware/
+│   ├── logger.js
+│   ├── auth.js
+│   └── validateProduct.js
+│
+├── .env
+├── .env.example
+├── README.md
+└── server.js
+
+🧪 Testing with Postman
+Set the following header for all requests:
+x-api-key: supersecret123
+You can test all routes using Postman or Insomnia.
+
+🔧 Environment Variables
+Create a .env file and define:
+API_KEY=supersecret123
+Also include a .env.example file for reference:
+API_KEY=your_api_key_here
+
+✅ Project Complete
+This completes the Express.js API assignment with:
+
+CRUD endpoints ✅
+
+Middleware ✅
+
+Error handling ✅
+
+Advanced features ✅   
