@@ -18,7 +18,7 @@ This project is a RESTful API built with Express.js for managing a list of produ
 
 1. Clone the repository:
    ```bash
-   git clone <your-repository-url>
+   git clone https://github.com/PLP-MERN-Stack-Development/week-2-express-js-assignment-Wangarijane.git
 
 2. Navigate into the project folder:
    
